@@ -15,14 +15,21 @@ import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class SpeechListener implements ActionListener {
+	
+	private int previousHour;
+	
+	public SpeechListener() {
+		this.previousHour = -1;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		LocalTime localTime = LocalTime.now();
 		int minute = localTime.getMinute();
-		if (minute == 0) {
-			int hour = localTime.getHour();		// 0 to 23
+		int hour = localTime.getHour();		// 0 to 23	
+		if (minute == 0 && previousHour != hour) {
 			playWavFile(hour);
+			previousHour = hour;
 		}
 	}
 	
