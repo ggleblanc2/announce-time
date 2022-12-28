@@ -26,7 +26,7 @@ public class AnnounceTimeFrame {
 	
 	public AnnounceTimeFrame() {
 		this.frame = createAndShowGUI();
-		this.timer = new Timer(60_000, new SpeechListener());
+		this.timer = new Timer(30_000, new SpeechListener());
 	}
 	
 	public JFrame createAndShowGUI() {
