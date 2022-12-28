@@ -27,7 +27,7 @@ public class SpeechListener implements ActionListener {
 		LocalTime localTime = LocalTime.now();
 		int minute = localTime.getMinute();
 		int hour = localTime.getHour();		// 0 to 23	
-		if (minute == 0 && previousHour != hour) {
+		if ((minute == 0) && (previousHour != hour)) {
 			playWavFile(hour);
 			previousHour = hour;
 		}
@@ -79,6 +79,12 @@ public class SpeechListener implements ActionListener {
 
 		sourceLine.drain();
 		sourceLine.close();
+		
+		try {
+			audioStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
