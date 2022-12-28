@@ -14,5 +14,20 @@ I already had Audacity installed on my computer, so I quickly made 23 WAV files.
 
 The Java Swing GUI is small and simple.
 
-![start](resources-readme/announcetime1.png)
+![start](readme-resources/announcetime1.png)
 
+When you left-click the "Start" button, the GUI changes to the following:
+
+![started](readme-resources/announcetime2.png)
+
+When you left-click the "Stop" button, the GUI changes to the following:
+
+![started](readme-resources/announcetime3.png)
+
+## Explanation
+
+Oracle has a helpful tutorial, [Creating a GUI With Swing](https://docs.oracle.com/javase/tutorial/uiswing/index.html).  Skip the Learning Swing with the NetBeans IDE section.  
+
+The Swing GUI is so simple, I'm not going to go into much detail.  I use a Swing `Timer` to check the time once per minute.  If it's the top of the hour, I read the appropriate WAV file and play the recording.
+
+The code to play the recording is in the `SpeechListener` controller class.  Because the `actionPerformed` method is on a separate thread for the GUI's [Event Dispatch Thread](https://docs.oracle.com/javase/tutorial/uiswing/concurrency/dispatch.html), the GUI remains responsive.
