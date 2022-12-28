@@ -30,4 +30,4 @@ Oracle has a helpful tutorial, [Creating a GUI With Swing](https://docs.oracle.c
 
 The Swing GUI is so simple, I'm not going to go into much detail.  I create a `JFrame` and a `JPanel`.  I use a Swing `Timer` to check the time once per minute.  If it's the top of the hour, I read the appropriate WAV file and play the recording.
 
-The code to play the recording is in the `SpeechListener` controller class.  Because the `actionPerformed` method is on a separate thread for the GUI's [Event Dispatch Thread](https://docs.oracle.com/javase/tutorial/uiswing/concurrency/dispatch.html), the GUI remains responsive.
+The code to play the recording is in the `SpeechListener` controller class.  Because the `actionPerformed` method is on a separate thread than the GUI's [Event Dispatch Thread](https://docs.oracle.com/javase/tutorial/uiswing/concurrency/dispatch.html), the GUI remains responsive.
